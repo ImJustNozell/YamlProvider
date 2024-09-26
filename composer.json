@@ -1,7 +1,6 @@
 {
   "name": "nozell/database",
   "type": "library",
-  "license": "GPL-3.0-only",
   "require": {
     "pocketmine/pocketmine-mp": "^5.0"
   },
