@@ -26,9 +26,11 @@ class YamlDatabase
             $this->config = new Config($filePath, Config::YAML);
         }
 
-        $this->fileHandle = fopen($this->filePath, 'c+');
+        $this->fileHandle = fopen($this->filePath, "c+");
         if (!$this->fileHandle) {
-            throw new RuntimeException("No se pudo abrir el archivo para lectura/escritura: $filePath");
+            throw new RuntimeException(
+                "No se pudo abrir el archivo para lectura/escritura: $filePath"
+            );
         }
     }
 
@@ -103,7 +105,9 @@ class YamlDatabase
     public function startTransaction(): void
     {
         if (!$this->useCache) {
-            throw new RuntimeException("Las transacciones solo son soportadas con el cache habilitado.");
+            throw new RuntimeException(
+                "Las transacciones solo son soportadas con el cache habilitado."
+            );
         }
         if ($this->inTransaction) {
             throw new RuntimeException("Ya hay una transacción en curso.");
