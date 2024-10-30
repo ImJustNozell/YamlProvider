@@ -188,16 +188,6 @@ $db->commitTransaction();  // Saves changes | Guarda los cambios
 
 ---
 
-```php
-$db->startTransaction();
-$db->set("jugadores", "Steve", ["kills" => 11]);
-$db->set("jugadores", "Alex", ["kills" => 17]);
-$db->commitTransaction();  // Guarda los cambios
-// $db->rollbackTransaction(); // Para deshacer los cambios
-```
-
----
-
 ## ⚙️ **Advanced Options** | **Opciones Avanzadas**
 
 ### 💡 **Using Cache** | **Uso de Caché**
