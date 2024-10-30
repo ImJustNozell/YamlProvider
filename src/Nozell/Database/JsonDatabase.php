@@ -4,14 +4,14 @@ namespace Nozell\Database;
 
 use RuntimeException;
 
-class YamlDatabase extends AbstractDatabase
+class JsonDatabase extends AbstractDatabase
 {
     protected function loadFromFile(): array
     {
         if (file_exists($this->filePath)) {
-            $data = yaml_parse_file($this->filePath);
-            if ($data === false) {
-                throw new RuntimeException("Error al leer el archivo YAML.");
+            $data = json_decode(file_get_contents($this->filePath), true);
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                throw new RuntimeException("Error al leer el archivo JSON: " . json_last_error_msg());
             }
             return $data ?: [];
         }
@@ -20,8 +20,8 @@ class YamlDatabase extends AbstractDatabase
 
     protected function saveToFile(array $data): void
     {
-        if (yaml_emit_file($this->filePath, $data, YAML_UTF8_ENCODING) === false) {
-            throw new RuntimeException("Error al escribir en el archivo YAML.");
+        if (file_put_contents($this->filePath, json_encode($data, JSON_PRETTY_PRINT)) === false) {
+            throw new RuntimeException("Error al escribir en el archivo JSON.");
         }
     }
 
