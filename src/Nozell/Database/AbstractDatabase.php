@@ -51,9 +51,42 @@ abstract class AbstractDatabase
         }
     }
 
+    public function sectionExists(string $section): bool
+    {
+        if ($this->useCache) {
+            return isset($this->cache[$section]);
+        } else {
+            return $this->hasSection($section);
+        }
+    }
+
+    public function getAllKeys(string $section): array
+    {
+        if ($this->useCache) {
+            return array_keys($this->cache[$section] ?? []);
+        } else {
+            return $this->getKeys($section);
+        }
+    }
+
+    public function getAllSections(): array
+    {
+        if ($this->useCache) {
+            return array_keys($this->cache);
+        } else {
+            return $this->getSections();
+        }
+    }
+
     abstract protected function saveEntry(string $section, string $key, $value): void;
 
     abstract protected function getEntry(string $section, string $key);
 
     abstract protected function deleteEntry(string $section, string $key): void;
+
+    abstract protected function hasSection(string $section): bool;
+
+    abstract protected function getKeys(string $section): array;
+
+    abstract protected function getSections(): array;
 }
