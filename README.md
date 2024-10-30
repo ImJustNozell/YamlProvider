@@ -280,7 +280,3 @@ zell/database-library.git
 This project is licensed under the **Apache License 2.0**. You can view the full license in the [LICENSE](LICENSE) file.
 
 ---
-
-Este proyecto está licenciado bajo la **Licencia Apache 2.0**. Puedes consultar el archivo [LICENSE](LICENSE) para más detalles.
-
----
