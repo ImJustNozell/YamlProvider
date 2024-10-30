@@ -24,24 +24,6 @@ Una librería de PHP flexible y ligera para manejar bases de datos en formato **
 
 ---
 
-## ⚙️ **Requirements** | **Requisitos**
-
-- **PHP 7.4** or higher.
-- Required PHP extensions:
-  - `ext-json`
-  - `ext-yaml`
-  - `ext-sqlite3`
-
----
-
-- **PHP 7.4** o superior.
-- Extensiones de PHP requeridas:
-  - `ext-json`
-  - `ext-yaml`
-  - `ext-sqlite3`
-
----
-
 ## 🚀 **Installation** | **Instalación**
 
 ### **Using Composer** | **Usando Composer**
